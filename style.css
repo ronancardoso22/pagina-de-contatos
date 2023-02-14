@@ -18,7 +18,9 @@
     --cor-de-fundo-botao: rgba(255, 255, 255, 0.1);
     --borda-botao: 1px solid rgba(255, 255, 255, 0.5);
     --sombra-icone:rgba(255, 255, 255, 0.2);
-    --hover-botao:rgba(255, 255, 255, 0.05)
+    --hover-botao:rgba(255, 255, 255, 0.05);
+    --switch-background: white url(./assets/moon.svg) no-repeat center;
+    --switch-borda-hover: 0px 2px 8px rgba(255, 255, 255, 0.7);
 }
 
 .light{
@@ -27,7 +29,9 @@
     --cor-de-fundo-botao: rgba(0, 0, 0, 0.1);
     --borda-botao: 1px solid rgba(0, 0, 0, 0.5);
     --sombra-icone:rgba( 0, 0, 0, 0.1);
-    --hover-botao:rgba( 0, 0, 0, 0.05)
+    --hover-botao:rgba( 0, 0, 0, 0.05);
+    --switch-background: white url(./assets/sun.svg) no-repeat center;
+    --switch-borda-hover: 0px 2px 8px rgba( 0, 0, 0, 0.5);
 }
 
 body{
@@ -86,6 +90,60 @@ body{
 
     font-weight: 400;  
     line-height: 24px;    
+}
+
+#switch{
+
+    width: 64px;
+    height: 32px;
+    position: relative;  
+    margin: 4px auto;  
+}
+
+#switch button{
+
+    width: 32px;
+    height: 32px;
+    background:var(--switch-background);
+    border: 0;
+    border-radius: 50%;
+    padding: 8px;
+    gap: 8px;
+   
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    transform: translateY(-50%);    
+}
+
+.light #switch button{
+
+    right: 0;
+    left: initial;
+}
+
+#switch button:hover{
+
+    width: 32px;
+    height: 32px;
+    background:var(--switch-background);
+    border:0;
+    border-radius: 50%;    
+    box-shadow:var(--switch-borda-hover);    
+}
+
+#switch span {
+    
+        display: block;
+        width: 64px;
+        height: 24px;
+        background:var(--cor-de-fundo-botao);
+        border: var(--borda-botao);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border-radius: 9999px;
 }
 
 ul {
