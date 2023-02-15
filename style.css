@@ -14,7 +14,8 @@
 
 :root{
     --text-color:white;
-    --background-url:url(./assets/BGDarkTheme.jpg);
+  /*  --background-url:url(./assets/BGDarkTheme.jpg);*/
+    --background-url:url(./assets/BGDarkMobile.jpg);
     --cor-de-fundo-botao: rgba(255, 255, 255, 0.1);
     --borda-botao: 1px solid rgba(255, 255, 255, 0.5);
     --sombra-icone:rgba(255, 255, 255, 0.2);
@@ -25,7 +26,8 @@
 
 .light{
     --text-color:black;
-    --background-url:url(./assets/BGLightTheme.jpg);
+   /* --background-url:url(./assets/BGLightTheme.jpg);*/
+    --background-url:url(./assets/BGLightMobile.jpg);
     --cor-de-fundo-botao: rgba(0, 0, 0, 0.1);
     --borda-botao: 1px solid rgba(0, 0, 0, 0.5);
     --sombra-icone:rgba( 0, 0, 0, 0.1);
@@ -36,18 +38,15 @@
 
 body{
 
-    background: #121214;
+    
       /*  background: color image repeat position/size  ( agrupando propriedades do background)*/
     background-image:var(--background-url);
     background-size: cover;
     background-repeat: no-repeat;
-    
+    background-position: center;
 
-    position: absolute;
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 0%;
+    height: 100vh;  
+    
     
 }
 /*  #id  # e usado como seletor para id's*/
@@ -56,20 +55,21 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
-    border-radius: 20px;
+    align-items: center;    
     padding: 0px 24px;    
 
    
     position: relative;
-    width: 588px;
-    height: 712px;
+    width: 100%;
+    max-width: 588px;
+    
+    margin: 56px auto 0px;
     
 
       /*  possibilita o meio da div posicionar no meio ta tela na posição horizontal*/ 
-            left: calc(50% - 588px/2); 
+       /*     left: calc(50% - 588px/2); */
 
-    top:calc(50% - 712px/2);
+   
 }
 
 #profile{
@@ -94,8 +94,7 @@ body{
 
 #switch{
 
-    width: 64px;
-    height: 32px;
+    width: 64px;    
     position: relative;  
     margin: 4px auto;  
 }
@@ -115,13 +114,13 @@ body{
     top: 50%;
     left: 0;
     z-index: 1;
-    transform: translateY(-50%);    
+    transform: translateY(-50%);  
+    animation: slide-back 0.2s;
 }
 
 .light #switch button{
 
-    right: 0;
-    left: initial;
+    animation: slide-in 0.2s forwards;
 }
 
 #switch button:hover{
@@ -152,7 +151,7 @@ ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    
     padding: 24px;
    
     gap: 16px;
@@ -167,7 +166,7 @@ ul li{
     text-align: center;
     padding: 16px 24px;
     height: 56px;
-    width: 540px;
+    width: 312px;
 
     background:var(--cor-de-fundo-botao);
     border:var(--borda-botao);
@@ -178,6 +177,7 @@ ul li{
 
 ul li a{
 
+    
     background-color: transparent;   
     color:var(--text-color);
     text-decoration: none;
@@ -193,7 +193,7 @@ ul li:hover{
 #icones{
     padding: 24px 0px;
     display: flex;
-    gap: 50px;
+    gap: 16px;
     justify-content: center;
     
 
@@ -227,3 +227,33 @@ footer{
     padding: 50px 24px 24px 24px;   
     gap: 8px;
 }
+
+@media(min-width:700px){
+    :root{
+       /* --background-url:url(./assets/BGDarkMobile.jpg);*/
+        --background-url:url(./assets/BGDarkTheme.jpg);
+    }
+
+    .light{
+        --background-url:url(./assets/BGLightTheme.jpg);
+    }
+
+}
+
+@keyframes slide-in {
+    from {
+      left: 0;
+    }
+    to {
+      left: 50%;
+    }
+  }
+  
+  @keyframes slide-back {
+    from {
+      left: 50%;
+    }
+    to {
+      left: 0;
+    }
+  }
